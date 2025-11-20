@@ -1,0 +1,1462 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Votre Signature Spirituelle</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/png" href="https://i.postimg.cc/CLDGjJKq/logo.png">
+    <style>
+        :root {
+            --primary: #6D28D9;
+            --primary-dark: #5B21B6;
+            --secondary: #F59E0B;
+            --accent: #10B981;
+            --light: #F8FAFC;
+            --dark: #1E293B;
+            --gray: #64748B;
+            --gradient: linear-gradient(135deg, rgba(102, 126, 234, 0.85) 0%, rgba(118, 75, 162, 0.85) 100%);
+            --shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--dark);
+            line-height: 1.6;
+            min-height: 100vh;
+            padding: 20px;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://www.kromgalerie.fr/wp-content/uploads/2021/01/Aurora-Borealis.jpg');
+            background-size: cover;
+            background-position: center;
+            filter: blur(1px) brightness(0.8);
+            z-index: -1;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Header */
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            color: white;
+            padding: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .logo {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 20px;
+            display: block;
+        }
+
+        header h1 {
+            font-family: 'Cinzel', serif;
+            font-size: 3.5rem;
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+        }
+
+        .tagline {
+            font-size: 1.3rem;
+            opacity: 0.9;
+            font-weight: 300;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .spiritus {
+            font-size: 1.8rem;
+            font-weight: 300;
+            margin-top: 10px;
+            opacity: 0.8;
+        }
+
+        /* Sections */
+        .form-section, .results-section {
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: var(--shadow-lg);
+            margin-bottom: 30px;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        /* Formulaire */
+        .form-container h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: white;
+            font-family: 'Cinzel', serif;
+            font-size: 2rem;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: white;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+
+        input[type="text"],
+        input[type="date"],
+        input[type="time"] {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 10px;
+            font-size: 16px;
+            transition: all 0.3s;
+            background: rgba(255, 255, 255, 0.9);
+        }
+
+        input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(109, 40, 217, 0.3);
+            background: white;
+        }
+
+        small {
+            display: block;
+            margin-top: 5px;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.85em;
+            text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
+        }
+
+        /* Boutons */
+        .btn-primary {
+            width: 100%;
+            padding: 18px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: var(--shadow);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+            background: var(--primary-dark);
+        }
+
+        .btn-secondary {
+            padding: 12px 25px;
+            background: rgba(255, 255, 255, 0.9);
+            color: var(--primary);
+            border: 2px solid var(--primary);
+            border-radius: 8px;
+            cursor: pointer;
+            margin-bottom: 20px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        /* Résultats */
+        .spiritual-signature h2 {
+            text-align: center;
+            color: white;
+            margin-bottom: 30px;
+            font-family: 'Cinzel', serif;
+            font-size: 2.2rem;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+        }
+
+        .signature-card {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            padding: 30px;
+            border-left: 5px solid var(--primary);
+            box-shadow: var(--shadow);
+        }
+
+        .info-section {
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #e1e1e1;
+        }
+
+        .info-section:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+
+        .info-section h3 {
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-family: 'Cinzel', serif;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .zodiac-sign {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: var(--primary);
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .zodiac-image {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--primary);
+            margin-right: 15px;
+        }
+
+        .life-path-number {
+            font-size: 4em;
+            text-align: center;
+            margin: 10px 0;
+            color: var(--primary);
+            font-family: 'Cinzel', serif;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .guardian-angel {
+            font-size: 2em;
+            text-align: center;
+            margin: 10px 0;
+            color: var(--primary);
+            font-family: 'Cinzel', serif;
+        }
+
+        .qualities, .challenges {
+            margin: 15px 0;
+        }
+
+        .qualities h4, .challenges h4 {
+            color: var(--accent);
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .qualities ul, .challenges ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .qualities li, .challenges li {
+            padding: 8px 0;
+            padding-left: 30px;
+            position: relative;
+        }
+
+        .qualities li:before {
+            content: "✓";
+            color: var(--accent);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        .challenges li:before {
+            content: "↻";
+            color: var(--secondary);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        .zodiac-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 15px 0;
+        }
+
+        .detail-item {
+            background: white;
+            padding: 12px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .detail-item strong {
+            color: var(--primary);
+        }
+
+        .angel-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin: 15px 0;
+        }
+
+        .angel-card {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+            text-align: center;
+        }
+
+        .angel-card h4 {
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        .invocation {
+            background: #f0f4ff;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+            font-style: italic;
+            border-left: 3px solid var(--primary);
+        }
+
+        /* Carousel de témoignages */
+        .testimonials-section {
+            margin-top: 50px;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .testimonials-section h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: white;
+            font-family: 'Cinzel', serif;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+        }
+
+        .testimonials-carousel {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+
+        .testimonials-container {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .testimonial {
+            min-width: 100%;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .testimonial-content {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            position: relative;
+        }
+
+        .testimonial-content:before {
+            content: """;
+            font-size: 80px;
+            color: var(--primary);
+            opacity: 0.2;
+            position: absolute;
+            top: -20px;
+            left: 10px;
+            font-family: serif;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+
+        .testimonial-author {
+            font-weight: bold;
+            color: var(--primary);
+        }
+
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: var(--primary);
+            color: white;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            z-index: 10;
+        }
+
+        .carousel-btn.prev {
+            left: 10px;
+        }
+
+        .carousel-btn.next {
+            right: 10px;
+        }
+
+        .carousel-indicators {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+            gap: 10px;
+        }
+
+        .indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .indicator.active {
+            background: white;
+        }
+
+        /* Partage */
+        .share-options {
+            text-align: center;
+            margin-top: 20px;
+            padding: 20px;
+            background: #f0f4ff;
+            border-radius: 10px;
+            border: 1px dashed var(--primary);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            color: white;
+            opacity: 0.9;
+            padding: 20px;
+            font-size: 0.9rem;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.8s ease forwards;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            
+            .form-section, .results-section {
+                padding: 25px;
+            }
+            
+            header h1 {
+                font-size: 2.5rem;
+            }
+            
+            .tagline {
+                font-size: 1.1rem;
+            }
+            
+            .life-path-number {
+                font-size: 3em;
+            }
+            
+            .guardian-angel {
+                font-size: 1.8em;
+            }
+            
+            .zodiac-details, .angel-details {
+                grid-template-columns: 1fr;
+            }
+            
+            .testimonials-section {
+                padding: 20px;
+            }
+            
+            .carousel-btn {
+                width: 35px;
+                height: 35px;
+            }
+            
+            .zodiac-image {
+                width: 60px;
+                height: 60px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 2rem;
+            }
+            
+            .form-container h2, .spiritual-signature h2 {
+                font-size: 1.5rem;
+            }
+            
+            .form-section, .results-section {
+                padding: 20px 15px;
+            }
+            
+            .testimonials-section {
+                padding: 15px 10px;
+            }
+            
+            .guardian-angel {
+                font-size: 1.5em;
+            }
+            
+            .zodiac-image {
+                width: 50px;
+                height: 50px;
+            }
+        }
+
+        /* Loading animation */
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255,255,255,.3);
+            border-radius: 50%;
+            border-top-color: #fff;
+            animation: spin 1s ease-in-out infinite;
+            margin-right: 10px;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <img src="https://i.postimg.cc/CLDGjJKq/logo.png" alt="Logo Spiritus" class="logo">
+            <h1>Votre Signature Spirituelle</h1>
+            <p class="tagline">Découvrez votre essence unique à travers l'astrologie et la numérologie</p>
+            <p class="spiritus">par Spiritus</p>
+        </header>
+
+        <!-- Formulaire -->
+        <section id="form-section" class="form-section fade-in">
+            <div class="form-container">
+                <h2>Créer votre signature spirituelle</h2>
+                <form id="spiritual-form">
+                    <div class="form-group">
+                        <label for="name">Votre nom ou prénom *</label>
+                        <input type="text" id="name" name="name" required placeholder="Ex: Marie">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="birthdate">Date de naissance *</label>
+                        <input type="date" id="birthdate" name="birthdate" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="birthtime">Heure de naissance (facultatif)</label>
+                        <input type="time" id="birthtime" name="birthtime" step="1">
+                        <small>Pour une analyse plus précise avec votre ascendant (format 24h)</small>
+                    </div>
+
+                    <button type="submit" class="btn-primary" id="submit-btn">
+                        <span class="btn-text">🪐 Générer ma signature spirituelle</span>
+                    </button>
+                </form>
+
+                <div class="disclaimer">
+                    <p style="color: white; text-shadow: 1px 1px 1px rgba(0,0,0,0.5);">🔒 <strong>Respect de votre vie privée :</strong> Aucune donnée n'est stockée sur nos serveurs. 
+                    Votre analyse reste confidentielle dans votre navigateur.</p>
+                </div>
+            </div>
+
+            <!-- Section témoignages -->
+            <div class="testimonials-section">
+                <h2>Témoignages</h2>
+                <div class="testimonials-carousel">
+                    <div class="testimonials-container">
+                        <div class="testimonial">
+                            <div class="testimonial-content">
+                                <p class="testimonial-text">"Spiritus a révélé des aspects de ma personnalité que je ne connaissais pas. L'analyse était incroyablement précise et m'a aidé à mieux me comprendre."</p>
+                                <p class="testimonial-author">- Amélie D.</p>
+                            </div>
+                        </div>
+                        <div class="testimonial">
+                            <div class="testimonial-content">
+                                <p class="testimonial-text">"Je suis impressionné par la profondeur de l'analyse. Les insights sur mon chiffre de vie ont été particulièrement éclairants pour mon parcours professionnel."</p>
+                                <p class="testimonial-author">- Thomas L.</p>
+                            </div>
+                        </div>
+                        <div class="testimonial">
+                            <div class="testimonial-content">
+                                <p class="testimonial-text">"En tant que sceptique, j'ai été agréablement surpris par la pertinence des informations. Cela m'a ouvert à de nouvelles perspectives sur moi-même."</p>
+                                <p class="testimonial-author">- Sophie M.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="carousel-btn prev"><i class="fas fa-chevron-left"></i></button>
+                    <button class="carousel-btn next"><i class="fas fa-chevron-right"></i></button>
+                    <div class="carousel-indicators">
+                        <div class="indicator active"></div>
+                        <div class="indicator"></div>
+                        <div class="indicator"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Résultats -->
+        <section id="results-section" class="results-section hidden">
+            <div class="results-container">
+                <button id="back-btn" class="btn-secondary">← Nouvelle analyse</button>
+                
+                <div class="spiritual-signature">
+                    <h2 id="user-greeting"></h2>
+                    <div class="signature-card">
+                        <!-- Contenu généré dynamiquement par JavaScript -->
+                        <div id="astrology-section" class="info-section"></div>
+                        <div id="numerology-section" class="info-section"></div>
+                        <div id="guardian-angel-section" class="info-section"></div>
+                        <div id="spiritual-insights" class="info-section"></div>
+                        <div id="advanced-section" class="info-section"></div>
+                        <div id="compatibility-section" class="info-section"></div>
+                        <div id="spiritual-practice-section" class="info-section"></div>
+                    </div>
+                </div>
+
+                <div class="share-options">
+                    <p>💫 Votre signature spirituelle est unique - capturez cet instant (screenshot)</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>Spiritus • Outil de développement spirituel • À but informatif seulement</p>
+    </footer>
+
+    <script>
+        // Images des signes du zodiaque
+        const zodiacImages = {
+            bélier: "https://kalendrier.ouest-france.fr/images/astrologie/belier.jpg",
+            taureau: "https://kalendrier.ouest-france.fr/images/astrologie/taureau.jpg",
+            gémeaux: "https://kalendrier.ouest-france.fr/images/astrologie/gemeaux.jpg",
+            cancer: "https://kalendrier.ouest-france.fr/images/astrologie/cancer.jpg",
+            lion: "https://kalendrier.ouest-france.fr/images/astrologie/lion.jpg",
+            vierge: "https://kalendrier.ouest-france.fr/images/astrologie/vierge.jpg",
+            balance: "https://kalendrier.ouest-france.fr/images/astrologie/balance.jpg",
+            scorpion: "https://kalendrier.ouest-france.fr/images/astrologie/scorpion.jpg",
+            sagittaire: "https://kalendrier.ouest-france.fr/images/astrologie/sagittaire.jpg",
+            capricorne: "https://kalendrier.ouest-france.fr/images/astrologie/capricorne.jpg",
+            verseau: "https://kalendrier.ouest-france.fr/images/astrologie/verseau.jpg",
+            poissons: "https://kalendrier.ouest-france.fr/images/astrologie/poissons.jpg"
+        };
+
+        // Base de données complète des signes astrologiques
+        const zodiacSigns = {
+            bélier: {
+                dates: "21 mars - 19 avril",
+                element: "Feu",
+                planet: "Mars",
+                qualities: ["Courageux", "Enthousiaste", "Déterminé", "Leadership naturel", "Pionnier", "Énergique", "Audacieux"],
+                challenges: ["Impulsif", "Impatient", "Têtu", "Égoïste", "Agressif", "Dominant"],
+                description: "Le Bélier est un pionnier, plein d'énergie et de passion. Votre dynamisme naturel vous pousse à prendre des initiatives et à ouvrir de nouvelles voies. Vous êtes un leader né avec une soif d'aventure et une capacité à inspirer les autres.",
+                stone: "Hématite",
+                color: "Rouge",
+                compatibleWith: ["Lion", "Sagittaire", "Gémeaux"],
+                incompatibleWith: ["Cancer", "Capricorne", "Balance"]
+            },
+            taureau: {
+                dates: "20 avril - 20 mai", 
+                element: "Terre",
+                planet: "Vénus",
+                qualities: ["Stable", "Fiable", "Sensuel", "Pratique", "Persévérant", "Fidèle", "Patient"],
+                challenges: ["Têtu", "Résistant au changement", "Matérialiste", "Possessif", "Jaloux"],
+                description: "Le Taureau incarne la stabilité et la sensualité. Vous appréciez les plaisirs simples et la sécurité matérielle et affective. Votre patience et votre détermination font de vous un roc sur lequel les autres peuvent compter.",
+                stone: "Émeraude",
+                color: "Vert",
+                compatibleWith: ["Vierge", "Capricorne", "Cancer"],
+                incompatibleWith: ["Lion", "Verseau", "Scorpion"]
+            },
+            gémeaux: {
+                dates: "21 mai - 20 juin",
+                element: "Air",
+                planet: "Mercure",
+                qualities: ["Curieux", "Adaptable", "Communicatif", "Intelligent", "Enthousiaste", "Vif d'esprit"],
+                challenges: ["Inconstant", "Superficiel", "Nerveux", "Indécis", "Anxieux"],
+                description: "Le Gémeaux est un éternel curieux, avide de connaissances et de communications. Votre esprit vif vous permet de vous adapter à toutes les situations. Vous êtes le messager du zodiaque, créant des liens entre les personnes et les idées.",
+                stone: "Agate",
+                color: "Jaune",
+                compatibleWith: ["Balance", "Verseau", "Bélier"],
+                incompatibleWith: ["Vierge", "Poissons", "Sagittaire"]
+            },
+            cancer: {
+                dates: "21 juin - 22 juillet",
+                element: "Eau",
+                planet: "Lune",
+                qualities: ["Sensible", "Nurturant", "Intuitif", "Protecteur", "Fidèle", "Empathique"],
+                challenges: ["Émotif", "Susceptible", "Collant", "Passif-agressif", "Insecure"],
+                description: "Le Cancer est profondément émotionnel et protecteur. Votre intuition développée vous guide dans vos relations et vos décisions. Vous êtes le gardien du foyer et des traditions, créant un sentiment de sécurité pour vos proches.",
+                stone: "Pierre de Lune",
+                color: "Blanc",
+                compatibleWith: ["Scorpion", "Poissons", "Taureau"],
+                incompatibleWith: ["Bélier", "Balance", "Capricorne"]
+            },
+            lion: {
+                dates: "23 juillet - 22 août",
+                element: "Feu",
+                planet: "Soleil",
+                qualities: ["Généreux", "Créatif", "Chaleureux", "Loyal", "Charismatique", "Confiant"],
+                challenges: ["Égocentrique", "Autoritaire", "Dramatique", "Orgueilleux", "Entêté"],
+                description: "Le Lion rayonne de confiance et de générosité. Votre nature créative et votre charisme naturel attirent les autres. Vous êtes le cœur du zodiaque, apportant chaleur, inspiration et joie de vivre à votre entourage.",
+                stone: "Ambre",
+                color: "Or",
+                compatibleWith: ["Bélier", "Sagittaire", "Balance"],
+                incompatibleWith: ["Taureau", "Scorpion", "Verseau"]
+            },
+            vierge: {
+                dates: "23 août - 22 septembre",
+                element: "Terre", 
+                planet: "Mercure",
+                qualities: ["Analytique", "Précis", "Serviable", "Organisé", "Modeste", "Méthodique"],
+                challenges: ["Critique", "Inquiet", "Perfectionniste", "Rigide", "Pessimiste"],
+                description: "La Vierge possède un esprit analytique et un souci du détail. Votre nature serviable vous pousse à aider les autres avec efficacité. Vous êtes l'archiviste du zodiaque, cherchant à mettre de l'ordre dans le chaos et à améliorer les systèmes.",
+                stone: "Saphir",
+                color: "Bleu marine",
+                compatibleWith: ["Taureau", "Capricorne", "Cancer"],
+                incompatibleWith: ["Gémeaux", "Sagittaire", "Poissons"]
+            },
+            balance: {
+                dates: "23 septembre - 22 octobre",
+                element: "Air",
+                planet: "Vénus",
+                qualities: ["Diplomate", "Charmant", "Sociable", "Équilibré", "Artistique", "Fair"],
+                challenges: ["Indécis", "Évitant les conflits", "Superficiel", "Dépendant", "Vain"],
+                description: "La Balance recherche l'harmonie et l'équilibre dans tous les domaines. Votre sens de la justice et votre charme naturel facilitent les relations. Vous êtes l'esthète du zodiaque, cherchant la beauté et l'équilibre dans tous les aspects de la vie.",
+                stone: "Opale",
+                color: "Bleu",
+                compatibleWith: ["Gémeaux", "Verseau", "Lion"],
+                incompatibleWith: ["Cancer", "Capricorne", "Bélier"]
+            },
+            scorpion: {
+                dates: "23 octobre - 21 novembre",
+                element: "Eau",
+                planet: "Pluton",
+                qualities: ["Passionné", "Résolu", "Intense", "Perceptif", "Loyal", "Résilient"],
+                challenges: ["Jaloux", "Secret", "Manipulateur", "Obsessif", "Vindicatif"],
+                description: "Le Scorpion est intense et passionné, avec une profondeur psychologique remarquable. Votre capacité à transformer les situations difficiles est exceptionnelle. Vous êtes l'alchimiste du zodiaque, transformant l'ombre en lumière à travers un processus de régénération constante.",
+                stone: "Obsidienne",
+                color: "Bordeaux",
+                compatibleWith: ["Cancer", "Poissons", "Vierge"],
+                incompatibleWith: ["Lion", "Taureau", "Verseau"]
+            },
+            sagittaire: {
+                dates: "22 novembre - 21 décembre",
+                element: "Feu",
+                planet: "Jupiter",
+                qualities: ["Optimiste", "Aventurier", "Philosophique", "Honnéte", "Indépendant", "Enthousiaste"],
+                challenges: ["Imprudent", "Irresponsable", "Dogmatique", "Tactless", "Exagérateur"],
+                description: "Le Sagittaire est un chercheur de vérité et d'aventures. Votre optimisme et votre amour de la liberté vous poussent à explorer de nouveaux horizons. Vous êtes le philosophe du zodiaque, cherchant à comprendre le sens profond de la vie.",
+                stone: "Lapis-lazuli",
+                color: "Pourpre",
+                compatibleWith: ["Bélier", "Lion", "Balance"],
+                incompatibleWith: ["Vierge", "Poissons", "Gémeaux"]
+            },
+            capricorne: {
+                dates: "22 décembre - 19 janvier",
+                element: "Terre",
+                planet: "Saturne",
+                qualities: ["Ambitieux", "Discipliné", "Patient", "Responsable", "Pragmatique", "Persévérant"],
+                challenges: ["Pessimiste", "Rigide", "Matérialiste", "Froid", "Contrôlant"],
+                description: "Le Capricorne est ambitieux et discipliné, avec un sens aigu des responsabilités. Votre persévérance vous mène vers le succès à long terme. Vous êtes l'architecte du zodiaque, construisant patiemment votre vie selon des plans bien définis.",
+                stone: "Onyx",
+                color: "Noir",
+                compatibleWith: ["Taureau", "Vierge", "Poissons"],
+                incompatibleWith: ["Bélier", "Cancer", "Balance"]
+            },
+            verseau: {
+                dates: "20 janvier - 18 février",
+                element: "Air",
+                planet: "Uranus",
+                qualities: ["Innovant", "Humanitaire", "Indépendant", "Intellectuel", "Amical", "Progressiste"],
+                challenges: ["Détaché", "Imprévisible", "Rebelle", "Insensible", "Excentrique"],
+                description: "Le Verseau est un visionnaire tourné vers l'avenir et l'innovation. Votre pensée originale et votre nature humanitaire vous poussent à créer un monde meilleur. Vous êtes le réformateur du zodiaque, brisant les conventions pour créer de nouvelles possibilités.",
+                stone: "Améthyste",
+                color: "Violet",
+                compatibleWith: ["Gémeaux", "Balance", "Sagittaire"],
+                incompatibleWith: ["Taureau", "Scorpion", "Lion"]
+            },
+            poissons: {
+                dates: "19 février - 20 mars",
+                element: "Eau",
+                planet: "Neptune",
+                qualities: ["Compassionnel", "Intuitif", "Artistique", "Spirituel", "Altruiste", "Rêveur"],
+                challenges: ["Évasion de la réalité", "Victime", "Indécis", "Naïf", "Confus"],
+                description: "Le Poisson est profondément intuitif et compassionnel, avec une connexion naturelle au monde spirituel. Votre créativité et votre empathie sont remarquables. Vous êtes le mystique du zodiaque, naviguant entre les dimensions visibles et invisibles de l'existence.",
+                stone: "Aquamarine",
+                color: "Bleu vert",
+                compatibleWith: ["Cancer", "Scorpion", "Capricorne"],
+                incompatibleWith: ["Gémeaux", "Sagittaire", "Vierge"]
+            }
+        };
+
+        // Base de données complète des chiffres de vie
+        const lifePathNumbers = {
+            1: {
+                meaning: "Le Leader",
+                traits: ["Ambitieux", "Indépendant", "Créatif", "Déterminé", "Pionnier", "Confiant"],
+                mission: "Apprendre à diriger et à innover, à devenir autonome et à prendre des initiatives",
+                advice: "Développez votre confiance en vous sans devenir dominateur. Apprenez à écouter les autres tout en suivant votre propre voie."
+            },
+            2: {
+                meaning: "Le Diplomate", 
+                traits: ["Coopératif", "Sensible", "Intuitif", "Pacifique", "Patient", "Diplomate"],
+                mission: "Apprendre la coopération et l'harmonie, développer la sensibilité et l'intuition",
+                advice: "Exprimez vos besoins tout en maintenant l'équilibre relationnel. Apprenez à dire non quand nécessaire."
+            },
+            3: {
+                meaning: "Le Créatif",
+                traits: ["Expressif", "Sociable", "Artistique", "Optimiste", "Inspirant", "Charmeur"],
+                mission: "Exprimer sa créativité, apporter de la joie et inspirer les autres",
+                advice: "Concentrez votre énergie créative sur des projets significatifs. Apprenez à terminer ce que vous commencez."
+            },
+            4: {
+                meaning: "Le Bâtisseur",
+                traits: ["Pratique", "Organisé", "Fiable", "Discipliné", "Patient", "Honnête"],
+                mission: "Créer des fondations solides, établir l'ordre et la stabilité",
+                advice: "Soyez ouvert au changement tout en maintenant votre structure. Équilibrez travail et détente."
+            },
+            5: {
+                meaning: "L'Aventurier",
+                traits: ["Liberté", "Adaptable", "Curieux", "Energique", "Progressiste", "Polyvalent"],
+                mission: "Apprendre par l'expérience, embrasser le changement et la liberté",
+                advice: "Trouvez un équilibre entre aventure et stabilité. Apprenez à vous engager quand c'est nécessaire."
+            },
+            6: {
+                meaning: "Le Nurturant",
+                traits: ["Responsable", "Bienveillant", "Protecteur", "Compatissant", "Créatif", "Fiable"],
+                mission: "Prendre soin des autres, créer l'harmonie et la beauté",
+                advice: "Prenez soin de vous autant que des autres. Établissez des limites saines dans vos relations."
+            },
+            7: {
+                meaning: "Le Sage",
+                traits: ["Analytique", "Spirituel", "Intuitif", "Introspectif", "Perfectionniste", "Réfléchi"],
+                mission: "Chercher la vérité et la sagesse intérieure, développer la spiritualité",
+                advice: "Trouvez l'équilibre entre la réflexion et l'action concrète. Partagez vos connaissances avec les autres."
+            },
+            8: {
+                meaning: "Le Puissant",
+                traits: ["Ambitieux", "Confiant", "Efficient", "Organisé", "Autoritaire", "Persévérant"],
+                mission: "Apprendre à utiliser le pouvoir avec sagesse, manifester l'abondance",
+                advice: "Utilisez votre pouvoir pour le bien commun. Équilibrez vie professionnelle et personnelle."
+            },
+            9: {
+                meaning: "L'Humanitaire",
+                traits: ["Compassionnel", "Généreux", "Artistique", "Tolérant", "Altruiste", "Sage"],
+                mission: "Servir l'humanité, embrasser la compassion et le pardon universel",
+                advice: "Apprenez à recevoir autant qu'à donner. Trouvez l'équilibre entre idéalisme et réalisme."
+            },
+            11: {
+                meaning: "L'Illuminé",
+                traits: ["Intuitif", "Inspirant", "Idéaliste", "Visionnaire", "Sensible", "Charismatique"],
+                mission: "Inspirer les autres, apporter illumination et guidance spirituelle",
+                advice: "Apprenez à gérer votre haute sensibilité. Ancrez vos visions dans la réalité."
+            },
+            22: {
+                meaning: "Le Maître Bâtisseur",
+                traits: ["Pratique", "Visionnaire", "Puissant", "Constructif", "Ambitieux", "Inspirant"],
+                mission: "Transformer les rêves en réalité à grande échelle, construire pour l'humanité",
+                advice: "Utilisez vos talents d'organisation pour des projets bénéfiques à tous. Restez humble dans vos réalisations."
+            },
+            33: {
+                meaning: "Le Maître Enseignant",
+                traits: ["Compassionnel", "Inspirant", "Bienveillant", "Créatif", "Altruiste", "Éclairé"],
+                mission: "Élever la conscience collective par l'amour et le service désintéressé",
+                advice: "Prenez soin de vous pour pouvoir mieux servir les autres. Votre présence est un cadeau pour le monde."
+            }
+        };
+
+        // Base de données des anges gardiens
+        const guardianAngels = {
+            1: {
+                name: "Vehuiah",
+                domain: "Commencements, inspiration divine",
+                qualities: ["Courage", "Confiance", "Inspiration", "Énergie nouvelle"],
+                invocation: "Ange Vehuiah, guide mes premiers pas et inspire mes nouveaux commencements. Donne-moi le courage d'entreprendre et la confiance pour avancer."
+            },
+            2: {
+                name: "Jeliel",
+                domain: "Amour, relations, harmonie",
+                qualities: ["Harmonie", "Amour", "Compassion", "Diplomatie"],
+                invocation: "Ange Jeliel, bénis mes relations et apporte l'harmonie dans ma vie. Guide mon cœur vers l'amour véritable et la compassion."
+            },
+            3: {
+                name: "Sitael",
+                domain: "Protection, force intérieure",
+                qualities: ["Protection", "Force", "Résilience", "Courage"],
+                invocation: "Ange Sitael, entoure-moi de ta protection divine. Donne-moi la force intérieure de surmonter les épreuves avec courage."
+            },
+            4: {
+                name: "Elemiah",
+                domain: "Voyages, découvertes",
+                qualities: ["Aventure", "Découverte", "Orientation", "Protection"],
+                invocation: "Ange Elemiah, guide mes pas dans mes voyages physiques et spirituels. Protège-moi et ouvre mon esprit aux nouvelles découvertes."
+            },
+            5: {
+                name: "Mahasiah",
+                domain: "Guérison, paix intérieure",
+                qualities: ["Guérison", "Paix", "Sérénité", "Équilibre"],
+                invocation: "Ange Mahasiah, apporte la guérison à mon corps et à mon esprit. Donne-moi la paix intérieure et l'équilibre dans toutes les situations."
+            },
+            6: {
+                name: "Lelahel",
+                domain: "Lumière, inspiration artistique",
+                qualities: ["Créativité", "Inspiration", "Lumière", "Beauté"],
+                invocation: "Ange Lelahel, illumine mon esprit de ta lumière créative. Inspire mes projets et guide ma main dans l'expression artistique."
+            },
+            7: {
+                name: "Achaiah",
+                domain: "Patience, persévérance",
+                qualities: ["Patience", "Persévérance", "Endurance", "Confiance"],
+                invocation: "Ange Achaiah, donne-moi la patience d'attendre le moment propice et la persévérance de poursuivre mes objectifs avec confiance."
+            },
+            8: {
+                name: "Cahetel",
+                domain: "Abondance, prospérité",
+                qualities: ["Abondance", "Prosperité", "Générosité", "Gratitude"],
+                invocation: "Ange Cahetel, ouvre les voies de l'abondance dans ma vie. Apprends-moi à recevoir avec gratitude et à partager avec générosité."
+            },
+            9: {
+                name: "Haziel",
+                domain: "Miséricorde, pardon",
+                qualities: ["Pardon", "Miséricorde", "Compassion", "Clémence"],
+                invocation: "Ange Haziel, ouvre mon cœur au pardon et à la miséricorde. Aide-moi à libérer les ressentiments et à embrasser la compassion."
+            },
+            10: {
+                name: "Aladiah",
+                domain: "Rédemption, purification",
+                qualities: ["Purification", "Rédemption", "Renouveau", "Transformation"],
+                invocation: "Ange Aladiah, purifie mon être de toutes les énergies négatives. Guide-moi vers la rédemption et la transformation positive."
+            },
+            11: {
+                name: "Lauviah",
+                domain: "Succès, victoire",
+                qualities: ["Succès", "Victoire", "Réussite", "Reconnaissance"],
+                invocation: "Ange Lauviah, guide-moi vers le succès dans mes entreprises. Donne-moi la force de surmonter les obstacles et d'atteindre la victoire."
+            },
+            12: {
+                name: "Hahaiah",
+                domain: "Révélations, secrets",
+                qualities: ["Intuition", "Révélation", "Sagesse", "Discernement"],
+                invocation: "Ange Hahaiah, ouvre mon esprit aux révélations divines. Donne-moi la sagesse de comprendre les secrets de l'univers."
+            },
+            13: {
+                name: "Iezalel",
+                domain: "Union, relations harmonieuses",
+                qualities: ["Union", "Harmonie", "Compréhension", "Empathie"],
+                invocation: "Ange Iezalel, bénis mes unions et mes relations. Apporte l'harmonie et la compréhension mutuelle dans mes interactions."
+            },
+            14: {
+                name: "Mebahel",
+                domain: "Liberté, délivrance",
+                qualities: ["Liberté", "Libération", "Indépendance", "Autonomie"],
+                invocation: "Ange Mebahel, libère-moi de toutes les chaînes qui m'emprisonnent. Donne-moi la force de revendiquer ma liberté et mon autonomie."
+            },
+            15: {
+                name: "Hariel",
+                domain: "Nature, connexion terrestre",
+                qualities: ["Connexion", "Nature", "Équilibre", "Respect"],
+                invocation: "Ange Hariel, renforce ma connexion avec la nature et les éléments. Guide-moi vers un équilibre harmonieux avec la Terre."
+            },
+            16: {
+                name: "Hekamiah",
+                domain: "Loyauté, fidélité",
+                qualities: ["Loyauté", "Fidélité", "Engagement", "Intégrité"],
+                invocation: "Ange Hekamiah, renforce ma loyauté envers moi-même et envers les autres. Guide-moi vers des engagements basés sur l'intégrité."
+            },
+            17: {
+                name: "Lauviah",
+                domain: "Gloire, reconnaissance",
+                qualities: ["Reconnaissance", "Gloire", "Honneur", "Mérite"],
+                invocation: "Ange Lauviah, aide-moi à reconnaître ma propre valeur et à être reconnu pour mes talents véritables. Guide-moi vers une gloire méritée."
+            },
+            18: {
+                name: "Caliel",
+                domain: "Justice, équité",
+                qualities: ["Justice", "Équité", "Droit", "Impartialité"],
+                invocation: "Ange Caliel, guide mes actions vers la justice et l'équité. Donne-moi la force de défendre ce qui est juste et droit."
+            },
+            19: {
+                name: "Leuviah",
+                domain: "Mémoire, apprentissage",
+                qualities: ["Mémoire", "Apprentissage", "Connaissance", "Sagesse"],
+                invocation: "Ange Leuviah, renforce ma mémoire et ma capacité d'apprentissage. Guide-moi vers la connaissance et la sagesse véritable."
+            },
+            20: {
+                name: "Pahaliah",
+                domain: "Rédemption, conversion",
+                qualities: ["Transformation", "Conversion", "Renouveau", "Évolution"],
+                invocation: "Ange Pahaliah, guide-moi dans ma transformation personnelle. Aide-moi à évoluer vers une version plus élevée de moi-même."
+            },
+            21: {
+                name: "Nelchael",
+                domain: "Philosophie, recherche de vérité",
+                qualities: ["Sagesse", "Vérité", "Philosophie", "Réflexion"],
+                invocation: "Ange Nelchael, guide ma quête de vérité et de sagesse. Ouvre mon esprit aux enseignements philosophiques et spirituels."
+            },
+            22: {
+                name: "Ieiaiel",
+                domain: "Intuition, visions",
+                qualities: ["Intuition", "Vision", "Clairvoyance", "Inspiration"],
+                invocation: "Ange Ieiaiel, renforce mon intuition et ouvre mon troisième œil. Donne-moi des visions claires pour guider mon chemin."
+            },
+            23: {
+                name: "Melahel",
+                domain: "Guérison, médecine",
+                qualities: ["Guérison", "Santé", "Médecine", "Bien-être"],
+                invocation: "Ange Melahel, apporte la guérison à mon corps et à mon esprit. Guide les soins que je reçois et ceux que je donne."
+            },
+            24: {
+                name: "Hahuiah",
+                domain: "Protection, refuge",
+                qualities: ["Protection", "Refuge", "Sécurité", "Abri"],
+                invocation: "Ange Hahuiah, offre-moi ta protection divine dans les moments difficiles. Sois mon refuge et mon abri face aux tempêtes de la vie."
+            },
+            25: {
+                name: "Nith-Haiah",
+                domain: "Secret, mystères",
+                qualities: ["Discrétion", "Secret", "Mystère", "Réservé"],
+                invocation: "Ange Nith-Haiah, apprends-moi la valeur du secret et de la discrétion. Guide-moi dans l'exploration des mystères sacrés."
+            },
+            26: {
+                name: "Haaiah",
+                domain: "Politique, diplomatie",
+                qualities: ["Diplomatie", "Politique", "Négociation", "Paix"],
+                invocation: "Ange Haaiah, guide mes paroles et mes actions dans les situations diplomatiques. Donne-moi la sagesse de négocier pour la paix."
+            },
+            27: {
+                name: "Ierathel",
+                domain: "Famille, foyer",
+                qualities: ["Famille", "Foyer", "Tradition", "Racines"],
+                invocation: "Ange Ierathel, bénis ma famille et mon foyer. Renforce les liens qui nous unissent et honore nos traditions."
+            },
+            28: {
+                name: "Seehiah",
+                domain: "Longévité, santé durable",
+                qualities: ["Longévité", "Santé", "Vitalité", "Endurance"],
+                invocation: "Ange Seehiah, accorde-moi une santé durable et une longue vie remplie de vitalité. Donne-moi l'endurance pour accomplir ma mission."
+            },
+            29: {
+                name: "Reiiel",
+                domain: "Délivrance, libération",
+                qualities: ["Libération", "Délivrance", "Affranchissement", "Soulagement"],
+                invocation: "Ange Reiiel, libère-moi de tout ce qui m'emprisonne et m'empêche d'avancer. Donne-moi la force de me affranchir des chaînes du passé."
+            },
+            30: {
+                name: "Omael",
+                domain: "Fécondité, reproduction",
+                qualities: ["Fécondité", "Reproduction", "Création", "Renouvellement"],
+                invocation: "Ange Omael, bénis ma capacité à créer et à donner la vie. Qu'elle soit physique, artistique ou spirituelle, guide ma fécondité."
+            },
+            31: {
+                name: "Lecabel",
+                domain: "Intelligence, connaissances",
+                qualities: ["Intelligence", "Connaissance", "Apprentissage", "Compréhension"],
+                invocation: "Ange Lecabel, illumine mon esprit et renforce mon intelligence. Guide-moi dans l'acquisition de connaissances et la compréhension profonde."
+            }
+        };
+
+        // Calcul du signe astrologique
+        function getZodiacSign(day, month) {
+            if ((month === 3 && day >= 21) || (month === 4 && day <= 19)) return "bélier";
+            if ((month === 4 && day >= 20) || (month === 5 && day <= 20)) return "taureau";
+            if ((month === 5 && day >= 21) || (month === 6 && day <= 20)) return "gémeaux";
+            if ((month === 6 && day >= 21) || (month === 7 && day <= 22)) return "cancer";
+            if ((month === 7 && day >= 23) || (month === 8 && day <= 22)) return "lion";
+            if ((month === 8 && day >= 23) || (month === 9 && day <= 22)) return "vierge";
+            if ((month === 9 && day >= 23) || (month === 10 && day <= 22)) return "balance";
+            if ((month === 10 && day >= 23) || (month === 11 && day <= 21)) return "scorpion";
+            if ((month === 11 && day >= 22) || (month === 12 && day <= 21)) return "sagittaire";
+            if ((month === 12 && day >= 22) || (month === 1 && day <= 19)) return "capricorne";
+            if ((month === 1 && day >= 20) || (month === 2 && day <= 18)) return "verseau";
+            if ((month === 2 && day >= 19) || (month === 3 && day <= 20)) return "poissons";
+        }
+
+        // Calcul du chiffre de vie
+        function calculateLifePathNumber(dateString) {
+            const date = new Date(dateString);
+            const day = date.getDate();
+            const month = date.getMonth() + 1;
+            const year = date.getFullYear();
+            
+            let sum = day + month + year;
+            let lifePath = sum;
+            
+            // Réduction numérologique
+            while (lifePath > 9 && lifePath !== 11 && lifePath !== 22 && lifePath !== 33) {
+                lifePath = lifePath.toString().split('').reduce((acc, digit) => acc + parseInt(digit), 0);
+            }
+            
+            return lifePath;
+        }
+
+        // Obtenir l'ange gardien basé sur le jour de naissance
+        function getGuardianAngel(day) {
+            return guardianAngels[day];
+        }
+
+        // Calcul de l'ascendant (simplifié)
+        function calculateAscendant(zodiacSign, birthTime) {
+            if (!birthTime) return null;
+            
+            const [hours, minutes] = birthTime.split(':').map(Number);
+            const timeValue = hours + minutes / 60;
+            
+            // Table de correspondance simplifiée entre signe solaire et ascendant
+            const ascendantMap = {
+                bélier: ["Bélier", "Taureau", "Gémeaux", "Cancer", "Lion", "Vierge", "Balance", "Scorpion", "Sagittaire", "Capricorne", "Verseau", "Poissons"],
+                taureau: ["Taureau", "Gémeaux", "Cancer", "Lion", "Vierge", "Balance", "Scorpion", "Sagittaire", "Capricorne", "Verseau", "Poissons", "Bélier"],
+                gémeaux: ["Gémeaux", "Cancer", "Lion", "Vierge", "Balance", "Scorpion", "Sagittaire", "Capricorne", "Verseau", "Poissons", "Bélier", "Taureau"],
+                cancer: ["Cancer", "Lion", "Vierge", "Balance", "Scorpion", "Sagittaire", "Capricorne", "Verseau", "Poissons", "Bélier", "Taureau", "Gémeaux"],
+                lion: ["Lion", "Vierge", "Balance", "Scorpion", "Sagittaire", "Capricorne", "Verseau", "Poissons", "Bélier", "Taureau", "Gémeaux", "Cancer"],
+                vierge: ["Vierge", "Balance", "Scorpion", "Sagittaire", "Capricorne", "Verseau", "Poissons", "Bélier", "Taureau", "Gémeaux", "Cancer", "Lion"],
+                balance: ["Balance", "Scorpion", "Sagittaire", "Capricorne", "Verseau", "Poissons", "Bélier", "Taureau", "Gémeaux", "Cancer", "Lion", "Vierge"],
+                scorpion: ["Scorpion", "Sagittaire", "Capricorne", "Verseau", "Poissons", "Bélier", "Taureau", "Gémeaux", "Cancer", "Lion", "Vierge", "Balance"],
+                sagittaire: ["Sagittaire", "Capricorne", "Verseau", "Poissons", "Bélier", "Taureau", "Gémeaux", "Cancer", "Lion", "Vierge", "Balance", "Scorpion"],
+                capricorne: ["Capricorne", "Verseau", "Poissons", "Bélier", "Taureau", "Gémeaux", "Cancer", "Lion", "Vierge", "Balance", "Scorpion", "Sagittaire"],
+                verseau: ["Verseau", "Poissons", "Bélier", "Taureau", "Gémeaux", "Cancer", "Lion", "Vierge", "Balance", "Scorpion", "Sagittaire", "Capricorne"],
+                poissons: ["Poissons", "Bélier", "Taureau", "Gémeaux", "Cancer", "Lion", "Vierge", "Balance", "Scorpion", "Sagittaire", "Capricorne", "Verseau"]
+            };
+            
+            const index = Math.floor(timeValue / 2) % 12;
+            return ascendantMap[zodiacSign][index];
+        }
+
+        // Génération des insights spirituels personnalisés
+        function generateSpiritualInsights(zodiacSign, lifePathNumber, name) {
+            const insights = [];
+            
+            // Insight basé sur le signe
+            if (zodiacSign.element === 'Feu') {
+                insights.push(`Votre élément Feu vous donne une énergie rayonnante et une capacité naturelle à inspirer les autres.`);
+            } else if (zodiacSign.element === 'Terre') {
+                insights.push(`Votre élément Terre vous ancre dans le moment présent et vous donne un sens pratique remarquable.`);
+            } else if (zodiacSign.element === 'Air') {
+                insights.push(`Votre élément Air vous connecte au monde des idées et vous donne une grande capacité d'adaptation.`);
+            } else if (zodiacSign.element === 'Eau') {
+                insights.push(`Votre élément Eau vous rend profondément intuitif et vous connecte aux dimensions émotionnelles.`);
+            }
+            
+            // Insight basé sur le chiffre
+            if (lifePathNumber <= 9) {
+                insights.push(`Votre chemin de vie numéro ${lifePathNumber} vous invite à ${lifePathNumbers[lifePathNumber].mission.toLowerCase()}.`);
+            } else {
+                insights.push(`En tant que maître-nombre ${lifePathNumber}, vous portez une vibration spirituelle élevée et une mission d'inspiration.`);
+            }
+            
+            // Insight combiné
+            insights.push(`La combinaison de votre signe ${zodiacSign.planet} et de votre chiffre ${lifePathNumber} crée une énergie unique de transformation.`);
+            
+            // Insight personnel
+            insights.push(`${name}, votre chemin spirituel est marqué par l'authenticité et la recherche de sens profond dans chaque expérience.`);
+            
+            // Insight supplémentaire basé sur l'élément et le chiffre
+            if (zodiacSign.element === 'Feu' && lifePathNumber === 1) {
+                insights.push("Votre combinaison Feu/Leader vous donne un potentiel exceptionnel pour initier des projets innovants.");
+            } else if (zodiacSign.element === 'Eau' && (lifePathNumber === 7 || lifePathNumber === 9)) {
+                insights.push("Votre sensibilité intuitive combinée à votre chemin spirituel vous rend particulièrement réceptif aux dimensions subtiles.");
+            }
+            
+            return insights;
+        }
+
+        // Affichage des résultats
+        function displayResults(userData) {
+            const birthDate = new Date(userData.birthdate);
+            const day = birthDate.getDate();
+            const month = birthDate.getMonth() + 1;
+            
+            // Calculs
+            const zodiacSignName = getZodiacSign(day, month);
+            const zodiacSign = zodiacSigns[zodiacSignName];
+            const lifePathNumber = calculateLifePathNumber(userData.birthdate);
+            const lifePath = lifePathNumbers[lifePathNumber];
+            const guardianAngel = getGuardianAngel(day);
+            const ascendant = calculateAscendant(zodiacSignName, userData.birthtime);
+            
+            // Mise à jour de l'interface
+            document.getElementById('user-greeting').textContent = 
+                `Signature Spirituelle de ${userData.name}`;
+            
+            // Section Astrologie
+            document.getElementById('astrology-section').innerHTML = `
+                <h3>🌞 Votre Profil Astrologique</h3>
+                <div class="zodiac-sign">
+                    <img src="${zodiacImages[zodiacSignName]}" alt="${zodiacSignName}" class="zodiac-image">
+                    ${zodiacSignName.charAt(0).toUpperCase() + zodiacSignName.slice(1)}
+                </div>
+                <p>${zodiacSign.description}</p>
+                
+                <div class="zodiac-details">
+                    <div class="detail-item"><strong>Période :</strong> ${zodiacSign.dates}</div>
+                    <div class="detail-item"><strong>Élément :</strong> ${zodiacSign.element}</div>
+                    <div class="detail-item"><strong>Planète :</strong> ${zodiacSign.planet}</div>
+                    <div class="detail-item"><strong>Pierre :</strong> ${zodiacSign.stone}</div>
+                    <div class="detail-item"><strong>Couleur :</strong> ${zodiacSign.color}</div>
+                </div>
+                
+                <div class="qualities">
+                    <h4>✨ Vos Forces Naturelles</h4>
+                    <ul>
+                        ${zodiacSign.qualities.map(quality => `<li>${quality}</li>`).join('')}
+                    </ul>
+                </div>
+                
+                <div class="challenges">
+                    <h4>🌱 Défis à Relever</h4>
+                    <ul>
+                        ${zodiacSign.challenges.map(challenge => `<li>${challenge}</li>`).join('')}
+                    </ul>
+                </div>
+            `;
+            
+            // Section Numérologie
+            document.getElementById('numerology-section').innerHTML = `
+                <h3>🔢 Votre Chiffre de Vie</h3>
+                <div class="life-path-number">${lifePathNumber}</div>
+                <p><strong>Signification :</strong> ${lifePath.meaning}</p>
+                <p><strong>Mission de vie :</strong> ${lifePath.mission}</p>
+                
+                <h4>🎭 Caractéristiques Principales</h4>
+                <ul>
+                    ${lifePath.traits.map(trait => `<li>${trait}</li>`).join('')}
+                </ul>
+                
+                <p><strong>💡 Conseil spirituel :</strong> ${lifePath.advice}</p>
+            `;
+            
+            // Section Ange Gardien
+            document.getElementById('guardian-angel-section').innerHTML = `
+                <h3>👼 Votre Ange Gardien</h3>
+                <div class="guardian-angel">${guardianAngel.name}</div>
+                <p><strong>Domaine d'influence :</strong> ${guardianAngel.domain}</p>
+                
+                <div class="angel-details">
+                    <div class="angel-card">
+                        <h4>🌟 Qualités</h4>
+                        <ul>
+                            ${guardianAngel.qualities.map(quality => `<li>${quality}</li>`).join('')}
+                        </ul>
+                    </div>
+                    <div class="angel-card">
+                        <h4>🙏 Invocation</h4>
+                        <div class="invocation">${guardianAngel.invocation}</div>
+                    </div>
+                </div>
+                
+                <p><em>Votre ange gardien vous accompagne particulièrement le ${day} de chaque mois. C'est un moment propice pour renforcer votre connexion avec lui.</em></p>
+            `;
+            
+            // Section Insights Spirituels
+            const insights = generateSpiritualInsights(zodiacSign, lifePathNumber, userData.name);
+            document.getElementById('spiritual-insights').innerHTML = `
+                <h3>💫 Insights Spirituels</h3>
+                <ul>
+                    ${insights.map(insight => `<li>${insight}</li>`).join('')}
+                </ul>
+            `;
+            
+            // Section Avancée (si heure fournie)
+            if (userData.birthtime) {
+                document.getElementById('advanced-section').innerHTML = `
+                    <h3>🌅 Analyse Avancée</h3>
+                    <p>Avec l'heure de naissance (${userData.birthtime}), nous pouvons déterminer votre ascendant :</p>
+                    <p><strong>Votre ascendant :</strong> ${ascendant}</p>
+                    <p>Votre ascendant ${ascendant} influence la façon dont vous vous présentez au monde et votre personnalité extérieure. Il complète votre signe solaire ${zodiacSignName} pour former une image plus complète de votre être.</p>
+                    <p><em>Pour une analyse complète incluant les maisons astrologiques et les aspects planétaires, des outils spécialisés sont recommandés.</em></p>
+                `;
+            } else {
+                document.getElementById('advanced-section').innerHTML = `
+                    <h3>🌅 Pour Aller Plus Loin</h3>
+                    <p>En fournissant votre heure de naissance, vous pourriez découvrir votre ascendant et obtenir une analyse encore plus personnalisée de votre thème astral.</p>
+                `;
+            }
+            
+            // Section Compatibilité
+            document.getElementById('compatibility-section').innerHTML = `
+                <h3>💞 Compatibilité Astrologique</h3>
+                <p><strong>Signes compatibles :</strong> ${zodiacSign.compatibleWith.join(", ")}</p>
+                <p><strong>Signes moins compatibles :</strong> ${zodiacSign.incompatibleWith.join(", ")}</p>
+                <p><em>Ces compatibilités sont indicatives. Chaque relation est unique et dépend de nombreux facteurs au-delà des signes astrologiques.</em></p>
+            `;
+            
+            // Section Pratiques Spirituelles
+            document.getElementById('spiritual-practice-section').innerHTML = `
+                <h3>🧘 Pratiques Spirituelles Recommandées</h3>
+                <p>Pour harmoniser votre énergie ${zodiacSign.element.toLowerCase()} et renforcer votre connexion avec votre ange gardien ${guardianAngel.name}, nous vous recommandons :</p>
+                <ul>
+                    <li>Méditation avec la couleur ${zodiacSign.color.toLowerCase()} pour équilibrer vos chakras</li>
+                    <li>Utilisation de la pierre ${zodiacSign.stone.toLowerCase()} lors de vos moments de réflexion</li>
+                    <li>Pratique régulière de l'invocation à votre ange gardien, particulièrement le ${day} de chaque mois</li>
+                    <li>Activités en lien avec votre élément (${getElementPractice(zodiacSign.element)})</li>
+                </ul>
+            `;
+            
+            // Afficher les résultats avec animation
+            document.getElementById('form-section').classList.add('hidden');
+            document.getElementById('results-section').classList.remove('hidden');
+            document.getElementById('results-section').classList.add('fade-in');
+        }
+
+        // Obtenir des pratiques par élément
+        function getElementPractice(element) {
+            const practices = {
+                'Feu': 'marche ensoleillée, danse, exercices cardiovasculaires',
+                'Terre': 'jardinage, randonnée, connexion avec la nature',
+                'Air': 'lecture, écriture, conversations profondes',
+                'Eau': 'bains relaxants, natation, méditation près de l\'eau'
+            };
+            return practices[element];
+        }
+
+        // Gestion des événements
+        document.getElementById('spiritual-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const submitBtn = document.getElementById('submit-btn');
+            const btnText = submitBtn.querySelector('.btn-text');
+            const originalText = btnText.textContent;
+            
+            // Animation de chargement
+            btnText.innerHTML = '<span class="loading"></span> Génération en cours...';
+            submitBtn.disabled = true;
+            
+            const formData = {
+                name: document.getElementById('name').value,
+                birthdate: document.getElementById('birthdate').value,
+                birthtime: document.getElementById('birthtime').value
+            };
+            
+            // Simuler un délai de traitement pour l'animation
+            setTimeout(() => {
+                displayResults(formData);
+                btnText.textContent = originalText;
+                submitBtn.disabled = false;
+            }, 1500);
+        });
+
+        document.getElementById('back-btn').addEventListener('click', function() {
+            document.getElementById('results-section').classList.add('hidden');
+            document.getElementById('form-section').classList.remove('hidden');
+            document.getElementById('spiritual-form').reset();
+        });
+
+        // Gestion du carousel de témoignages
+        let currentTestimonial = 0;
+        const testimonials = document.querySelectorAll('.testimonial');
+        const indicators = document.querySelectorAll('.indicator');
+        
+        function updateCarousel() {
+            const testimonialsContainer = document.querySelector('.testimonials-container');
+            testimonialsContainer.style.transform = `translateX(-${currentTestimonial * 100}%)`;
+            
+            indicators.forEach((indicator, index) => {
+                indicator.classList.toggle('active', index === currentTestimonial);
+            });
+        }
+        
+        document.querySelector('.carousel-btn.next').addEventListener('click', function() {
+            currentTestimonial = (currentTestimonial + 1) % testimonials.length;
+            updateCarousel();
+        });
+        
+        document.querySelector('.carousel-btn.prev').addEventListener('click', function() {
+            currentTestimonial = (currentTestimonial - 1 + testimonials.length) % testimonials.length;
+            updateCarousel();
+        });
+        
+        indicators.forEach((indicator, index) => {
+            indicator.addEventListener('click', function() {
+                currentTestimonial = index;
+                updateCarousel();
+            });
+        });
+
+        // Auto-rotation du carousel
+        setInterval(() => {
+            currentTestimonial = (currentTestimonial + 1) % testimonials.length;
+            updateCarousel();
+        }, 5000);
+
+        // Message de bienvenue
+        console.log("🌌 Votre Signature Spirituelle - Bienvenue dans l'univers de votre essence unique !");
+    </script>
+</body>
+</html>
